@@ -2,9 +2,10 @@ cff_version: 1.2.0
 title: Dataset of code metrics
 message: If you use this software, please cite it as below.
 author:
-- family_name: DATASET
-doi: 10.5281/zenodo.6800385
-url: https://doi.org/10.5281/zenodo.6800385
+- given_name: Anselm
+  family_name: Hahn
+doi: 10.5281/zenodo.7979015
+url: https://doi.org/10.5281/zenodo.7979015
 license: MIT
-version: 0.0.1
+version: v0.2.0
 date_released: '2023-05-28'

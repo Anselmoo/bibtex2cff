@@ -1,6 +1,8 @@
 # BibTeX2CFF
 
 [![PyPI](https://img.shields.io/pypi/v/bibtex2cff?logo=pypi&logoColor=yellow)](https://pypi.org/project/bibtex2cff/)
+[![DOI](https://zenodo.org/badge/642463530.svg)](https://zenodo.org/badge/latestdoi/642463530)
+
 
 ## Description
 
