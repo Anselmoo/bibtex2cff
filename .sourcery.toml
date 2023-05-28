@@ -1,2 +1,2 @@
 [tool.sourcery]
-target_version = "3.8"
+target_version = "3.9"

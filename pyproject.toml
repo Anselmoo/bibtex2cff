@@ -21,7 +21,7 @@ keywords = ["bibtex", "cff", "citation", "citation-file-format"]
 
 
     [tool.poetry.dependencies]
-    python = "^3.8.1"
+    python = "^3.9"
     bibtexparser = "^1.4.0"
     pydantic = { extras = ["email"], version = "^1.10.7" }
     pyyaml = "^6.0"
@@ -61,7 +61,7 @@ known_first_party = "poetry"
 
 [tool.black]
 line-length = 88
-target-version = ["py38", "py39", "py310", "py311"]
+target-version = ["py39", "py310", "py311"]
 include = '\.pyi?$'
 exclude = '''
 /(
