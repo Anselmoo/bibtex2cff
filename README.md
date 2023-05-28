@@ -1,5 +1,7 @@
 # BibTeX2CFF
 
+![PyPI](https://img.shields.io/pypi/v/bibtex2cff?logo=pypi&logoColor=yellow)(https://pypi.org/project/bibtex2cff/)
+
 ## Description
 
 This is a simple CMD-tool to convert BibTeX files to CFF files. It is dedicated to the [Citation File Format](https://citation-file-format.github.io/), which is a YAML-based format for bibliographic metadata.
