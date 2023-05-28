@@ -1,0 +1,23 @@
+{
+    "cSpell.words": [
+        "bibfile",
+        "bibtex",
+        "bibtexparser"
+    ],
+    "python.testing.pytestArgs": [
+        "src"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "flake8.importStrategy": "useBundled",
+    "python.linting.flake8Enabled": true,
+    "python.linting.banditEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.enabled": true,
+    "flake8.args": [
+        "--max-line-length=88"
+    ],
+    "esbonio.sphinx.confDir": ""
+}

@@ -1,0 +1,23 @@
+test:
+- src/test/**/*
+- src/test/*
+
+source:
+- src/bibtex2cff/**/*
+- src/bibtex2cff/*
+
+markdown:
+  - README.md
+  - CHANGELOG.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - LICENSE.mds
+
+poetry:
+  - poetry.lock
+  - pyproject.toml
+
+ci:
+  - .github/workflows/**/*
+  - .github/**/*
+  - .github/*
