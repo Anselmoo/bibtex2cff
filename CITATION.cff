@@ -1,7 +1,7 @@
 cff-version: "1.2.0"
 title: "Dataset of code metrics"
 message: "If you use this software, please cite it as below."
-author:
+authors:
 - given-name: "Anselm"
   family-name: "Hahn"
 doi: 10.5281/zenodo.8007540
