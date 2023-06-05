@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bibtex2cff"
-version = "0.2.0"
+version = "0.2.1"
 description = "Converting Bibtex to CITATION.cff fileformat"
 authors = ["Anselm Hahn <anselm.hahn@gmail.com>"]
 license = "MIT"
