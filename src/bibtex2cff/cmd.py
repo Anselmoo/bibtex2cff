@@ -4,7 +4,7 @@ import argparse as ap
 from pathlib import Path
 
 from bibtex2cff import __version__
-from bibtex2cff.convert_cff import CFFDefintionUpdate
+from bibtex2cff.convert_cff import CFFDefinitionUpdate
 from bibtex2cff.convert_cff import save_cff_definition
 
 
@@ -222,7 +222,7 @@ def main() -> None:
     args = cmd()
 
     bibtex_path = args.bibfile
-    definition = CFFDefintionUpdate(
+    definition = CFFDefinitionUpdate(
         bibtex_path, **{k: v for k, v in vars(args).items() if v is not None}
     ).get_definition
     if args.outfile:
