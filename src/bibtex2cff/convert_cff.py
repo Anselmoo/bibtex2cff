@@ -221,7 +221,7 @@ class ImportDefinition(DefinitionBridge):
         return definitions[_type](kwargs)()
 
 
-class CFFDefintionUpdate(DefinitionBridge):
+class CFFDefinitionUpdate(DefinitionBridge):
     """Class for updating CFF definitions."""
 
     def __init__(self, bibtex_path: str, **kwargs: Dict[str, Any]) -> None:
@@ -248,7 +248,29 @@ class CFFDefintionUpdate(DefinitionBridge):
         definition = self.default().get_definition
         definition.update(self.bibtex(self.bibtex_path).get_definition)
         definition.update(self.optional(definition, **self.kwargs).get_definition)
-        return CFFDefinition(**definition).dict(exclude_none=True, by_alias=True)
+        return self.replace_hyphens_with_underscores(
+            CFFDefinition(**definition).dict(exclude_none=True, by_alias=True)
+        )
+
+    def replace_hyphens_with_underscores(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """Replace hyphens with underscores in a dictionary.
+
+        Args:
+
+            data (Dict[str, Any]): A dictionary.
+
+        Returns:
+            Dict[str, Any]: A dictionary with hyphens replaced with underscores.
+        """
+        if isinstance(data, dict):
+            return {
+                k.replace("_", "-"): self.replace_hyphens_with_underscores(v)
+                for k, v in data.items()
+            }
+        elif isinstance(data, list):
+            return [self.replace_hyphens_with_underscores(v) for v in data]
+        else:
+            return data
 
 
 def save_cff_definition(

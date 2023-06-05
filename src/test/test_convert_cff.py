@@ -7,7 +7,7 @@ import pytest
 import yaml
 
 from bibtex2cff.convert_cff import BibTeXReader
-from bibtex2cff.convert_cff import CFFDefintionUpdate
+from bibtex2cff.convert_cff import CFFDefinitionUpdate
 from bibtex2cff.convert_cff import DatasetDefinition
 from bibtex2cff.convert_cff import DefaultDefinition
 from bibtex2cff.convert_cff import ImportDefinition
@@ -161,11 +161,11 @@ def test_optional_definition() -> None:
 
 def test_cff_definition_update(bibtex_file: Path) -> None:
     """Test the CFF definition update."""
-    definition = CFFDefintionUpdate(
+    definition = CFFDefinitionUpdate(
         str(bibtex_file),
         repository="https://repo.example.com",  # type: ignore
     ).get_definition
-    assert definition["author"] == [{"family_name": "Author", "given_name": "Test"}]
+    assert definition["author"] == [{"family-name": "Author", "given-name": "Test"}]
     assert definition["doi"] == "10.1234/5678"
     assert definition["repository"] == "https://repo.example.com"
 
@@ -198,3 +198,47 @@ def test_save_cff_definition(tmp_path: Path) -> None:
     assert cff_definition["title"] == "My Software"
     assert cff_definition["doi"] == "10.1234/5678"
     assert cff_definition["version"] == "1.0.0"
+
+
+@pytest.fixture
+def bibtex_file_mona_lisa(tmp_path: Path) -> Path:
+    """Create a temporary BibTeX file."""
+    bibtex_path = tmp_path / "test.bib"
+    bibtex_path.write_text(
+        """
+        @software{Lisa_My_Research_Software_2017,
+        author = {Lisa, Mona and Bot, Hew},
+        doi = {10.5281/zenodo.1234},
+        month = {dec},
+        title = {{My Research Software}},
+        url = {https://github.com/github-linguist/linguist},
+        version = {2.0.4},
+        year = {2017},
+        publisher = {Reference},
+        }
+        """
+    )
+    return bibtex_path
+
+
+def test_mona_lisa(bibtex_file_mona_lisa: Path) -> None:
+    """Test the Mona Lisa example."""
+    definition = CFFDefinitionUpdate(
+        str(bibtex_file_mona_lisa),
+        repository="https://docs.github.com/en/repositories"  # type: ignore
+        "/managing-your-repositorys-settings-and-features/customizing-your-repository"
+        "/about-citation-files",
+    ).get_definition
+    assert definition["author"] == [
+        {"family-name": "Lisa", "given-name": "Mona"},
+        {"family-name": "Bot", "given-name": "Hew"},
+    ]
+    assert definition["doi"] == "10.5281/zenodo.1234"
+    assert (
+        definition["repository"] == "https://docs.github.com/en/repositories/"
+        "managing-your-repositorys-settings-and-features/customizing-your-repository"
+        "/about-citation-files"
+    )
+    assert definition["version"] == "2.0.4"
+    assert definition["title"] == "{My Research Software}"
+    assert definition["url"] == "https://github.com/github-linguist/linguist"
