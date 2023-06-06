@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-  - family-name: Hahn
-    given-name: Anselm
+  - family-names: Hahn
+    given-names: Anselm
 title: "Convert from bibtex to CITATION.cff"
 doi: 10.5281/zenodo.8007540
 version: v0.2.1
